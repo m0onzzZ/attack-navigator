@@ -16,7 +16,9 @@ WORKDIR /src/nav-app
 # give user permissions
 RUN chown -R node:node ./
 
-# install packages and build 
+# install packages and build
+RUN npm config set registry https://registry.npm.taobao.org
+RUN npm install -g @angular/cli
 RUN npm install --unsafe-perm --legacy-peer-deps
 
 # NOTE on legacy-peer-deps:
